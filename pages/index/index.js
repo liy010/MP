@@ -7,7 +7,19 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    loading: false,
+    //msg: '点击进入>>',
+  },
+  tap: function() {
+    this.setData({
+      loading: true
+    })
+    setTimeout(() => {
+      wx.navigateTo({
+        url: '../evaluate/evaluate'
+      })
+    })
   },
   //事件处理函数
   bindViewTap: function() {
@@ -15,11 +27,23 @@ Page({
       url: '../wxml/index'
     })
   },
+  con:function(eve) {
+    console.log('con'),
+    console.log(eve.touches)
+  },
+  toLogs: function() {
+    wx.navigateTo({
+      url: '../logs/logs',
+    })
+  },
   onLoad: function () {
+    this.setData({ msg: 'to logs >>' }, function() {
+      console.log('to logs')
+    })    
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
-        hasUserInfo: true
+        hasUserInfo: true,     
       })
     } else if (this.data.canIUse){
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
@@ -50,5 +74,9 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
-  }
+  },
+  onHide: function() {
+    console.log("hide")
+  },
+  onShareAppMessage: app.onShareAppMessage
 })

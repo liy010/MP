@@ -33,7 +33,14 @@ App({
       }
     })
   },
+  onShareAppMessage: function () {
+    return {
+      title: '极好的小程序，分享给你身边的人吧',
+      path: '/page/user?id=123'
+    }
+  },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    a: 'firstMiniProgram'
   }
 })

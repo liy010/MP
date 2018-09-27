@@ -1,0 +1,5 @@
+<!--pages/evaluate/evaluate.wxml-->
+<form>
+  <textarea placeholder='内容区' placeholder-class="center"></textarea>
+  <button bindtap='tap'>提交</button>
+</form>

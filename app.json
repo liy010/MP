@@ -2,7 +2,8 @@
   "pages":[
     "pages/index/index",
     "pages/wxml/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/evaluate/evaluate"
   ],
   "window":{
     "backgroundTextStyle":"dark",

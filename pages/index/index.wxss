@@ -19,3 +19,19 @@
 .usermotto {
   margin-top: 200px;
 }
+
+.hover_log:hover {
+    color: red;
+    background-color: #ccc;
+}
+
+button {
+  display: block;
+  margin: 10px auto;
+  height: 35px;
+  width: 200px;
+  background-color: greenyellow;
+  border-radius: 8px;
+  line-height: 35px;
+
+}

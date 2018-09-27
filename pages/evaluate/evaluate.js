@@ -1,24 +1,22 @@
-// pages/wxml/index.js
-var app = getApp();
-console.log(app.globalData.a)
+// pages/evaluate/evaluate.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    time: (new Date()).toString(),
-    a: 5,
-    b: app.globalData.a,
-    c: app,
-  },
 
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({ msg: 'hello' })
+    // wx.showToast({
+    //   title: '已发送',
+    //   icon: 'success',
+    //   duration: 1500
+    // })
   },
 
   /**
@@ -39,7 +37,7 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    console.log("hide")
+
   },
 
   /**
@@ -68,5 +66,15 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+
+  tap: function() {
+    setTimeout(() => {
+      wx.showToast({
+        title: '已发送',
+        icon: 'success',
+        duration: 1300
+      })
+    }, 1500)
+  },
 })
