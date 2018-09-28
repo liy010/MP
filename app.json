@@ -3,12 +3,39 @@
     "pages/index/index",
     "pages/wxml/index",
     "pages/logs/logs",
-    "pages/evaluate/evaluate"
+    "pages/evaluate/evaluate",
+    "pages/request/request",
+    "pages/map/map"
   ],
+  "tabBar": {
+    "color":"#333",
+    "selectedColor": "green",
+    "backgroundColor": "#ccc",
+    "position": "top",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "text": "日志"
+      },
+      {
+        "pagePath": "pages/map/map",
+        "text": "地图"
+      }
+    ]
+  },
   "window":{
     "backgroundTextStyle":"dark",
-    "navigationBarBackgroundColor": "#ccc",
+    "navigationBarBackgroundColor": "#ddd",
     "navigationBarTitleText": "MiniProgram", 
     "navigationBarTextStyle":"black"
-  }
+  },
+  "networkTimeout": {
+    "request": 3000,
+    "downloadFils": 10000
+  },
+  "debug": true
 }

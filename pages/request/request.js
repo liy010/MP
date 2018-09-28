@@ -1,5 +1,4 @@
-// pages/evaluate/evaluate.js
-var hasClick = false
+// pages/request/request.js
 Page({
 
   /**
@@ -13,11 +12,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // wx.showToast({
-    //   title: '已发送',
-    //   icon: 'success',
-    //   duration: 1500
-    // })
+
   },
 
   /**
@@ -68,22 +63,12 @@ Page({
   onShareAppMessage: function () {
 
   },
-
-  tap: function() {
-    if (hasClick) {
-      return
-    }
-    hasClick = true
-    wx.showLoading({
-      title: '正在发送···',
+  requestTap: function() {
+    wx.request({
+      url: 'http://localhost',
+      success: function(res) {
+        console.log(res);
+      }
     })
-    setTimeout(() => {
-      hasClick = false
-      wx.showToast({
-        title: '已发送',
-        icon: 'success',
-        duration: 1300
-      })
-    }, 1500)
-  },
+  }
 })

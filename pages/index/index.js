@@ -21,6 +21,16 @@ Page({
       })
     })
   },
+  requestTap: function() {
+    wx.navigateTo({
+      url: '../request/request',
+    })
+  },
+  mapTap: function() {
+    wx.navigateTo({
+      url: '../map/map',
+    })
+  },
   //事件处理函数
   bindViewTap: function() {
     wx.navigateTo({
@@ -40,6 +50,11 @@ Page({
     this.setData({ msg: 'to logs >>' }, function() {
       console.log('to logs')
     })    
+    // wx.getLocation({
+    //   success: function(res) {
+    //     console.log(res);
+    //   },
+    // })
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -77,6 +92,10 @@ Page({
   },
   onHide: function() {
     console.log("hide")
+    this.setData({
+      loading: false,
+    })
   },
-  onShareAppMessage: app.onShareAppMessage
+  onShareAppMessage: app.onShareAppMessage,
+
 })

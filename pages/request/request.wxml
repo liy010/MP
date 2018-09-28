@@ -1,0 +1,3 @@
+<!--pages/request/request.wxml-->
+<text>请求JSON数据</text>
+<button bindtap='requestTap'>请求</button>

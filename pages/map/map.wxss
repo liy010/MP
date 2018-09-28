@@ -1,0 +1,6 @@
+/* pages/map/map.wxss */
+
+.mapStyle {
+  margin: 20px auto;
+  border: 1px solid #ccc;
+}
