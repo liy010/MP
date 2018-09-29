@@ -34,7 +34,10 @@ App({
       }
     })
   },
-  onShareAppMessage: function () {
+  onShareAppMessage: function (res) {
+    if (res.from == 'menu') {
+      console.log('menu')
+    }
     return {
       title: '极好的小程序，分享给你身边的人吧',
       path: '/page/user?id=123'
@@ -42,6 +45,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    a: 'firstMiniProgram'
+    a: 'firstMiniProgram',
+    imageUrl: '',
   }
 })

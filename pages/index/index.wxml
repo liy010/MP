@@ -8,8 +8,7 @@
     </block>
   </view>
   <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-    <view  class="hover_log" bindtap="toLogs">{{ msg }}</view>
+    <text class="user-motto" hover-class='user-motto-hover'>{{motto}}</text>
     <button loading='{{loading}}' bindtap="tap">评价</button>
     <button bindtap='requestTap' style="background: blue">请求</button>
     <button bindtap='mapTap' style='background: skyblue'>地图</button>

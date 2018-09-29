@@ -9,7 +9,6 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     loading: false,
-    //msg: '点击进入>>',
   },
   tap: function() {
     this.setData({
@@ -46,15 +45,7 @@ Page({
       url: '../logs/logs',
     })
   },
-  onLoad: function () {
-    this.setData({ msg: 'to logs >>' }, function() {
-      console.log('to logs')
-    })    
-    // wx.getLocation({
-    //   success: function(res) {
-    //     console.log(res);
-    //   },
-    // })
+  onLoad: function () {   
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -96,6 +87,8 @@ Page({
       loading: false,
     })
   },
+  onShow: function() {
+    console.log(this.route)
+  },
   onShareAppMessage: app.onShareAppMessage,
-
 })

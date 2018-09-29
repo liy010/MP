@@ -9,7 +9,6 @@
   ],
   "tabBar": {
     "color":"#333",
-    "selectedColor": "green",
     "backgroundColor": "#ccc",
     "position": "top",
     "list": [
