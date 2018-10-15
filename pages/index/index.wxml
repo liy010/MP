@@ -13,4 +13,5 @@
     <button bindtap='requestTap' style="background: blue">请求</button>
     <button bindtap='mapTap' style='background: skyblue'>地图</button>
   </view>
+  <com></com>
 </view>

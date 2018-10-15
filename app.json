@@ -23,6 +23,14 @@
       {
         "pagePath": "pages/map/map",
         "text": "地图"
+      },
+      {
+        "pagePath": "pages/request/request",
+        "text": "请求"
+      },
+      {
+        "pagePath": "pages/evaluate/evaluate",
+        "text": "评价"
       }
     ]
   },
