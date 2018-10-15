@@ -1,4 +1,10 @@
 <!--pages/map/map.wxml-->
-<text>pages/map/map.wxml</text>
+<h3>定位</h3>
 
 <map bindmarkertap="markertap" markers='{{markers}}' longitude='{{longitude}}' latitude='{{latitude}}' class='mapStyle'></map>
+
+<canvas canvas-id='myCanvas1' class="canvas1"></canvas>
+<canvas canvas-id='myCanvas2' class="canvas2" bindtouchstart='start' bindtouchmove='move' bindtouchend='end'></canvas>
+<view hidden= "{{hidden}}">Coordinates: (<span>{{x}}</span>, <span>{{y}}</span>)</view>
+<canvas canvas-id='myCanvas3' class="canvas3"></canvas>
+<canvas canvas-id='myCanvas4' class="canvas4"></canvas>

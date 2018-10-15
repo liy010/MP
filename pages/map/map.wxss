@@ -1,6 +1,18 @@
 /* pages/map/map.wxss */
 
-.mapStyle {
+.mapStyle,
+.canvas1,
+.canvas2,
+.canvas3,
+.canvas4 {
   margin: 20px auto;
   border: 1px solid #ccc;
+}
+
+view {
+  color: rgb(17, 44, 31);
+}
+
+span {
+  color: rgb(4, 245, 153);
 }
