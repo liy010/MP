@@ -1,0 +1,10 @@
+/* pages/picture/picture.wxss */
+button {
+  display: block;
+  margin: 300rpx auto 0;
+  height: 35px;
+  width: 200px;
+  background-color: greenyellow;
+  border-radius: 8px;
+  line-height: 35px;
+}

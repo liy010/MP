@@ -4,45 +4,15 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    loading: false,
   },
-  tap: function() {
-    this.setData({
-      loading: true
-    })
+  pictureTap: function() {
     setTimeout(() => {
       wx.navigateTo({
-        url: '../evaluate/evaluate'
+        url: '../picture/picture'
       })
-    })
-  },
-  requestTap: function() {
-    wx.navigateTo({
-      url: '../request/request',
-    })
-  },
-  mapTap: function() {
-    wx.navigateTo({
-      url: '../map/map',
-    })
-  },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../wxml/index'
-    })
-  },
-  con:function(eve) {
-    console.log('con'),
-    console.log(eve.touches)
-  },
-  toLogs: function() {
-    wx.navigateTo({
-      url: '../logs/logs',
     })
   },
   onLoad: function () {   
@@ -74,21 +44,12 @@ Page({
     }
   },
   getUserInfo: function(e) {
-    console.log(e)
+    //console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
-  },
-  onHide: function() {
-    console.log("hide")
-    this.setData({
-      loading: false,
-    })
-  },
-  onShow: function() {
-    console.log(this.route)
   },
   onShareAppMessage: app.onShareAppMessage,
 })

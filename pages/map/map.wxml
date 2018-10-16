@@ -1,7 +1,10 @@
 <!--pages/map/map.wxml-->
 <h3>定位</h3>
 
+<view>
 <map bindmarkertap="markertap" markers='{{markers}}' longitude='{{longitude}}' latitude='{{latitude}}' class='mapStyle'></map>
+<button bindtap='mapTap'>重新定位</button>
+</view>
 
 <canvas canvas-id='myCanvas1' class="canvas1"></canvas>
 <canvas canvas-id='myCanvas2' class="canvas2" bindtouchstart='start' bindtouchmove='move' bindtouchend='end'></canvas>

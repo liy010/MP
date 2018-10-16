@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view class="container">
+<view class="container" style="height: 1200rpx">
   <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <block wx:else>
@@ -7,11 +7,8 @@
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
   </view>
-  <view class="usermotto">
-    <text class="user-motto" hover-class='user-motto-hover'>{{motto}}</text>
-    <button loading='{{loading}}' bindtap="tap">评价</button>
-    <button bindtap='requestTap' style="background: blue">请求</button>
-    <button bindtap='mapTap' style='background: skyblue'>地图</button>
-  </view>
+  <view>
+  <button bindtap='pictureTap'>图片上传</button>
   <com></com>
+  </view>
 </view>

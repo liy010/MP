@@ -31,7 +31,7 @@ Page({
           latitude: res.data.latitude,
           longitude: res.data.longitude          
         })
-        console.log('读取map成功')
+        //console.log('读取map成功')
       },
       fail: function() {
         wx.getLocation({
@@ -51,7 +51,7 @@ Page({
                 longitude: res.longitude
               },
               success: function() {
-                console.log('写入map成功')
+                //console.log('写入map成功')
               }
             })
           },
@@ -106,9 +106,9 @@ Page({
       hidden: true
     })
   },
-  markertap(e) {
-    console.log(e)
-  },
+  // markertap(e) {
+  //   console.log(e)
+  // },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -157,5 +157,38 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  mapTap: function() {
+    let that = this
+    wx.getLocation({
+      success: function (res) {
+        that.setData({
+          latitude: res.latitude,
+          longitude: res.longitude,
+          markers: [{
+            latitude: res.latitude,
+            longitude: res.longitude
+          }]
+        }),
+          wx.setStorage({
+            key: 'map',
+            data: {
+              latitude: res.latitude,
+              longitude: res.longitude
+            },
+            success: function () {
+              //console.log('写入map成功')
+            }
+          })
+      },
+      fail: function () {
+        wx.showToast({
+          title: '位置信息获取失败',
+          icon: 'fail',
+          duration: 1500
+        })
+      }
+    })
   }
 })

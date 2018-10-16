@@ -1,24 +1,23 @@
-// pages/wxml/index.js
-var app = getApp();
-//console.log(app.globalData.a)
+// pages/picture/picture.js
+const util = require('../../utils/util.js')
+
+wx.cloud.init({
+  traceUser: true
+})
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    time: (new Date()).toString(),
-    a: 5,
-    b: app.globalData.a,
-    c: app,
-  },
 
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({ msg: 'hello' })
+
   },
 
   /**
@@ -39,7 +38,7 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    console.log("hide")
+
   },
 
   /**
@@ -68,5 +67,22 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  tap: function(e) {
+    wx.chooseImage({
+      success(res) {
+        console.log(res)
+        const tempFilePaths = res.tempFilePaths
+        console.log(util.pictureName(tempFilePaths[0]))
+        wx.cloud.uploadFile({
+          cloudPath: 'picture/' + util.pictureName(tempFilePaths[0]),
+          filePath: tempFilePaths[0],
+          success: res => {
+            console.log(res.fileID)
+          },
+          fail: console.error
+        })
+      }
+    })
   }
 })

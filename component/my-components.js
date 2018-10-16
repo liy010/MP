@@ -6,7 +6,7 @@ Component({
   properties: {
     innerText: {
       type: String,
-      value: 'ggggg'
+      value: '自定义组件'
     }
   },
 

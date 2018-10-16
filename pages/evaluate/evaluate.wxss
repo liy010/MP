@@ -11,9 +11,17 @@ form {
 
 textarea {
   background-color: white;
-  width: 90%;
-  height: 300px;
-  margin: 0 auto; 
+  width: 85%;
+  height: 260rpx;
+  margin: 30rpx auto 0; 
+  padding: 16rpx;
+  font-size: 32rpx;
+  border: 1px solid #ddd;
+  border-radius: 18rpx;
+}
+
+textarea:focus {
+  background-color: red;
 }
 
 .center {
@@ -25,6 +33,30 @@ button {
   width: 75%;
   height: 35px;
   border-radius: 8px;
-  margin-top: 30px;
+  margin-top: 30rpx;
   line-height: 35px;
+}
+
+.allComment {
+  width: 90%;
+  margin: 50rpx auto;
+  background-color: white;
+  overflow: hidden;
+}
+
+.list {
+  padding: 12rpx;
+  width: 90%;
+  border: 1.5px solid #eee;
+  margin: 12rpx auto;
+  word-wrap: break-word;
+  border-radius: 16rpx;
+}
+
+.time {
+  position: relative;
+  left: 365rpx;
+  margin-top: 30rpx;
+  color: #888;
+  font-size: 24rpx;
 }

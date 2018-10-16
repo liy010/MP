@@ -1,5 +1,15 @@
 <!--pages/evaluate/evaluate.wxml-->
-<form>
-  <textarea placeholder='内容区' placeholder-class="center"></textarea>
-  <button bindtap='tap'>提交</button>
+<form bindsubmit="formSubmit">
+  <textarea name='input' placeholder='请输入评价内容' placeholder-class="center" value="{{com}}"></textarea>
+  <button form-type='submit'>提交</button>
 </form>
+
+<view class="allComment">
+  <text style='display: inline-block; margin: 8rpx; font-weight: bold'>历史评价：</text>
+  <block wx:for="{{commentList}}" wx:key="{{index}}">
+  <view class="list">
+    <view class="comment" style='color: {{item.color}}'>{{item.comment}}</view>
+    <view class="time">{{item.time}}</view>
+  </view>
+  </block>
+</view>

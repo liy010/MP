@@ -1,1 +1,45 @@
 /* pages/request/request.wxss */
+
+form {
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  height: 600rpx;
+  width: 660rpx;
+  margin: 60rpx auto;
+  background-color: #ddd;
+  padding-top: 20rpx;
+}
+
+.list {
+  margin-bottom: 20rpx;
+}
+
+.title {
+  margin-left: 20rpx;
+  font-size: 30rpx;  
+}
+
+.input,
+.picker {
+  border: 1px solid #ddd;
+  background-color: rgb(255, 255, 255);
+  margin-right: 24rpx;
+  margin-left: 24rpx;
+  height: 80rpx;
+  border-radius: 13rpx;
+  margin-top: 10rpx;
+  padding-left: 10rpx;
+}
+
+.picker {
+  line-height: 80rpx;
+}
+
+button {
+  width: 50%;
+  margin: 45rpx auto 0;
+  border-radius: 6rpx;
+  background-color: rgb(63, 238, 147);
+  color: darkred;
+}

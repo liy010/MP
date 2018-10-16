@@ -9,11 +9,27 @@ const formatTime = date => {
   return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
 }
 
+const formatDate = date => {
+  const year = date.getFullYear()
+  const month = date.getMonth() + 1
+  const day = date.getDate()
+
+  return [year, month, day].map(formatNumber).join('-')
+}
+
 const formatNumber = n => {
   n = n.toString()
   return n[1] ? n : '0' + n
 }
 
+const pictureName = function(name) {
+  let nameArray = name.split(".");
+  let len = nameArray.length;
+  return nameArray[len-2] + '.' + nameArray[len-1]
+}
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  formatDate: formatDate,
+  pictureName: pictureName
 }

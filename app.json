@@ -1,15 +1,16 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
-    "pages/wxml/index",
     "pages/logs/logs",
     "pages/evaluate/evaluate",
     "pages/request/request",
-    "pages/map/map"
+    "pages/map/map",
+    "pages/picture/picture",
+    "pages/wxml/index"
   ],
   "tabBar": {
-    "color":"#333",
-    "backgroundColor": "#ccc",
+    "color": "#333",
+    "backgroundColor": "#39c",
     "position": "top",
     "list": [
       {
@@ -26,7 +27,7 @@
       },
       {
         "pagePath": "pages/request/request",
-        "text": "请求"
+        "text": "提醒"
       },
       {
         "pagePath": "pages/evaluate/evaluate",
@@ -34,11 +35,11 @@
       }
     ]
   },
-  "window":{
-    "backgroundTextStyle":"dark",
+  "window": {
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#ddd",
-    "navigationBarTitleText": "MiniProgram", 
-    "navigationBarTextStyle":"black"
+    "navigationBarTitleText": "MiniProgram",
+    "navigationBarTextStyle": "black"
   },
   "networkTimeout": {
     "request": 3000,
