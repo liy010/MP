@@ -25,7 +25,12 @@ const formatNumber = n => {
 const pictureName = function(name) {
   let nameArray = name.split(".");
   let len = nameArray.length;
-  return nameArray[len-2] + '.' + nameArray[len-1]
+  let pos = nameArray[len-2].indexOf("_")
+  if (pos === -1) {
+    return nameArray[len - 2] + '.' + nameArray[len - 1]    
+  } else {
+    return nameArray[len-2].slice(pos+1) + '.' + nameArray[len-1]
+  }
 }
 
 module.exports = {
