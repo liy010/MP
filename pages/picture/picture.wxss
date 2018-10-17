@@ -1,10 +1,36 @@
 /* pages/picture/picture.wxss */
 button {
   display: block;
-  margin: 300rpx auto 0;
-  height: 35px;
+  margin: 80rpx auto 0;
+  height: 100rpx;
   width: 200px;
-  background-color: greenyellow;
+  background: #58a linear-gradient(hsla(0, 0%, 100%, .2), transparent);
   border-radius: 8px;
-  line-height: 35px;
+  border: 1px solid #ccc;
+  line-height: 100rpx;
+  box-shadow: 3rpx 3rpx 16rpx rgba(0, 0, 0, 0.3);
+  text-shadow: 3rpx 3rpx 16rpx rgba(0, 0, 0, 0.3);
+}
+
+.picture {
+  padding: 8rpx;
+  width: 95%;
+  background-color: #eee;
+  margin: 0 auto;
+  margin-top: 50rpx;  
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 8rpx;
+}
+
+.item {
+  margin: 8rpx;
+  /* // height: 230rpx; */
+  width: 30%;
+  flex-grow: 1;
+}
+
+.pictureItem {
+  height: 100%;
+  width: 100%;
 }

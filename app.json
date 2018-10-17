@@ -10,16 +10,17 @@
   ],
   "tabBar": {
     "color": "#333",
-    "backgroundColor": "#39c",
+    "backgroundColor": "#3c3",
     "position": "top",
+    "selectedColor": "#fff",
     "list": [
       {
         "pagePath": "pages/index/index",
         "text": "首页"
       },
       {
-        "pagePath": "pages/logs/logs",
-        "text": "日志"
+        "pagePath": "pages/picture/picture",
+        "text": "图片上传"
       },
       {
         "pagePath": "pages/map/map",
@@ -39,7 +40,8 @@
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#ddd",
     "navigationBarTitleText": "MiniProgram",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "onReachBottomDistance": 80
   },
   "networkTimeout": {
     "request": 3000,

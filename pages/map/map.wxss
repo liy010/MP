@@ -2,11 +2,12 @@
 
 button {
   height: 70rpx;
-  font-size: 36rpx;
+  font-size: 32rpx;
   line-height: 70rpx;
-  width: 50%;
+  width: 40%;
   margin: 0 auto;
-  background-color: rgb(15, 168, 15);
+  background: rgb(15, 168, 15) linear-gradient(hsla(0, 0%, 100%, .2), transparent);
+  border: 1px solid #ddd;
 }
 .mapStyle,
 .canvas1,

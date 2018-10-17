@@ -8,10 +8,10 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
   },
-  pictureTap: function() {
+  logsTap: function() {
     setTimeout(() => {
       wx.navigateTo({
-        url: '../picture/picture'
+        url: '../logs/logs'
       })
     })
   },

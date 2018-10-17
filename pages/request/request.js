@@ -16,9 +16,9 @@ Page({
   formSubmit: function(e) {
     // console.log(e.detail.value);
     var _this=this;
-    console.log(_this.data.access_token, 'access_token')
-    console.log(app.globalData.openid, 'openid')
-    console.log(e.detail.formId, 'formid');
+    // console.log(_this.data.access_token, 'access_token')
+    // console.log(app.globalData.openid, 'openid')
+    // console.log(e.detail.formId, 'formid');
     wx.request({
       url: 'https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token=' + _this.data.access_token,
       method: 'post',

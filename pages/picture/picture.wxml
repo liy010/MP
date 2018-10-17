@@ -1,2 +1,8 @@
 <!--pages/picture/picture.wxml-->
 <button bindtap='tap'>上传图片</button>
+
+<view class='picture'>
+  <view class='item' wx:for="{{srcList}}" wx:key="{{index}}" style="height: {{height}}px">
+    <image src="{{item}}" class="pictureItem" mode='aspectFit' data-src="{{item}}" bindtap="pictureTap"></image>
+  </view>
+</view>

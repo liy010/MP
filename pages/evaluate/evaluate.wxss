@@ -29,7 +29,7 @@ textarea:focus {
 }
 
 button {
-  background-color: green;
+  background: rgb(57, 170, 57) linear-gradient(hsla(0, 0%, 100%, .2), transparent);
   width: 75%;
   height: 35px;
   border-radius: 8px;
@@ -51,6 +51,8 @@ button {
   margin: 12rpx auto;
   word-wrap: break-word;
   border-radius: 16rpx;
+  box-shadow: 4rpx 4rpx 8rpx #ccc;
+  background: rgba(35, 255, 108, 0.1)
 }
 
 .time {
