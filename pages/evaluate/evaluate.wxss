@@ -2,6 +2,7 @@
 
 page {
   background-color: #ededed;
+  padding-top: 30rpx;
 }
 
 form {
@@ -13,7 +14,7 @@ textarea {
   background-color: white;
   width: 85%;
   height: 260rpx;
-  margin: 30rpx auto 0; 
+  margin: 0 auto; 
   padding: 16rpx;
   font-size: 32rpx;
   border: 1px solid #ddd;
@@ -28,7 +29,7 @@ textarea:focus {
   line-height: 300px;
 }
 
-button {
+.newcommentbutton {
   background: rgb(57, 170, 57) linear-gradient(hsla(0, 0%, 100%, .2), transparent);
   width: 75%;
   height: 35px;
@@ -44,6 +45,11 @@ button {
   overflow: hidden;
 }
 
+/* .all {
+
+  overflow: hidden;
+} */
+
 .list {
   padding: 12rpx;
   width: 90%;
@@ -52,13 +58,115 @@ button {
   word-wrap: break-word;
   border-radius: 16rpx;
   box-shadow: 4rpx 4rpx 8rpx #ccc;
-  background: rgba(35, 255, 108, 0.1)
+  background: rgba(35, 255, 108, 0.1);
+  transition: all 0.3s;
+  position: relative;
 }
 
 .time {
   position: relative;
-  left: 365rpx;
   margin-top: 30rpx;
   color: #888;
   font-size: 24rpx;
+  left: 369rpx;
+}
+
+.options {
+  display: none;
+  background-color: #333;
+  position: absolute;
+  border-radius: 16rpx;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  /* opacity: 0.5; */
+  transition: all 3s;
+}
+
+.list:hover .options {
+  display: block;
+}
+
+.list_rightButton,
+.list_leftButton {
+  height: 100%;
+  width: 30%;
+  background-color: green;
+}
+
+.list_leftButton {
+  float: left;
+  margin-left: 30rpx;
+}
+
+.list_rightButton {
+  margin-right: 30rpx;
+  float: right;
+}
+
+.more {
+  font-size: 28rpx;
+  color: blue;
+}
+
+.commentOption {
+  position: fixed;
+  background-color: #000;
+  opacity: 0.3;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 9998;
+}
+
+.commentOptionForm {
+  position: fixed;
+  width: 90%;
+  height: 50%;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #dedede;
+  opacity: 1;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+.commentDetail {
+  height: 65%;
+  width: 90%;
+  margin: 2% auto;
+  border-radius: 20rpx;
+  background-color: #fff;
+  
+}
+
+.commentButton {
+  width: 80%;
+  height: 30%;
+  margin: 0 auto;
+}
+
+.right,
+.left {
+  width: 215rpx;
+  height: 50%;
+  font-size: 42rpx;
+}
+
+.right {
+  float: right;
+  background-color: rgb(191, 199, 75);
+}
+
+.left {
+  float: left;
+  background-color: rgb(105, 148, 241)
+}
+
+.right:hover,
+.left:hover {
+  background-color: rgb(4, 156, 4);
 }

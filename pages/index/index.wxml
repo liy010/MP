@@ -7,8 +7,9 @@
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
   </view>
-  <view>
+  <view class="other">
   <button bindtap='logsTap'>日志</button>
+  <button bindtap='cfunctionTap'>云函数测试</button>
   <com></com>
   </view>
 </view>

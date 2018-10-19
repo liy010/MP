@@ -9,10 +9,13 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
   },
   logsTap: function() {
-    setTimeout(() => {
       wx.navigateTo({
         url: '../logs/logs'
       })
+  },
+  cfunctionTap: () => {
+    wx.navigateTo({
+      url: '../cfunction/cfunction',
     })
   },
   onLoad: function () {   

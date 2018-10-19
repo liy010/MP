@@ -6,7 +6,8 @@
     "pages/request/request",
     "pages/map/map",
     "pages/picture/picture",
-    "pages/wxml/index"
+    "pages/wxml/index",
+    "pages/cfunction/cfunction"
   ],
   "tabBar": {
     "color": "#333",
@@ -38,13 +39,14 @@
   },
   "window": {
     "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#ddd",
-    "navigationBarTitleText": "MiniProgram",
-    "navigationBarTextStyle": "black",
-    "onReachBottomDistance": 80
+    "navigationBarBackgroundColor": "#202",
+    "navigationBarTitleText": "liyangTest",
+    "navigationBarTextStyle": "white",
+    "onReachBottomDistance": 80,
+    "backgroundColor": "#9c2das"
   },
   "networkTimeout": {
-    "request": 3000,
+    "request": 5000,
     "downloadFils": 10000
   },
   "debug": true

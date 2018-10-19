@@ -29,13 +29,17 @@
     background-color: #ccc;
 }
 
+.other {
+  margin-top: -200rpx;
+}
+
 button {
   display: block;
-  margin: 10px auto;
+  margin: 20rpx auto;
   height: 35px;
   width: 200px;
-  background-color: greenyellow;
+  background: rgb(162, 252, 27) linear-gradient(hsla(0, 0%, 100%, .3), transparent);
   border-radius: 8px;
   line-height: 35px;
-
+  box-shadow: 3px 3px 18px rgba(162, 252, 27, 0.8);
 }

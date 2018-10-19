@@ -54,6 +54,9 @@ App({
     })
   },
   onShareAppMessage: function (res) {
+    wx.showShareMenu({
+      withShareTicket: true
+    })
     if (res.from == 'menu') {
       console.log('menu')
     }

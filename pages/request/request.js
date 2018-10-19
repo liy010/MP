@@ -54,6 +54,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
     let time = Date.now();
     this.setData({
       date: util.formatDate(new Date(time))
@@ -67,19 +74,12 @@ Page({
         secret: 'b1e2f8d25a1bf129453c4e743895ea4a'
       },
       method: 'get',
-      success: function(res) {
+      success: function (res) {
         _this.setData({
           access_token: res.data.access_token
         })
       }
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
   },
 
   /**

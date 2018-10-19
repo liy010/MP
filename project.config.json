@@ -16,6 +16,7 @@
 	"appid": "wx4b967672095dd0f3",
 	"projectname": "1",
 	"isGameTourist": false,
+	"cloudfunctionRoot": "functions/",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -25,13 +26,41 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
 			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
-			"list": []
+			"current": 1,
+			"list": [
+				{
+					"id": -1,
+					"name": "share",
+					"pathName": "pages/index/index/share-button/share-button",
+					"query": "",
+					"scene": "1044",
+					"shareInfo": {
+						"groupName": "测试模拟群2",
+						"shareName": "zbFoeoftPvveKY9f7WoYL_Xrc-MDGBrf37SGp8wqmDM@cr4dev",
+						"shareKey": "RAxq4bXePP3sKBN8Sjly5oDXYbytBmXuY-chdAdCMPSeqnanrvri_4PY_d6nc2Ctl2s8VB21DXtmQv27fmCdbg~~"
+					}
+				},
+				{
+					"id": -1,
+					"name": "share",
+					"pathName": "pages/index/index",
+					"scene": "1044",
+					"shareInfo": {
+						"groupName": "测试模拟群3",
+						"shareName": "zbFoeoftPvveKY9f7WoYL-_HJWjP92uu9JuFpB7j3k0@cr4dev",
+						"shareKey": "-b4KzG9kFBwFm30j1tjeCcOFpBgfnAm9tDhqrql6FNt-jZVENAWOyTbF8sbzqYhWQPbfsh8mdjAl7JamIVn1xQ~~"
+					}
+				}
+			]
 		}
 	}
 }
