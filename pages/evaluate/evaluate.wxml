@@ -11,12 +11,12 @@
   <text style='display: inline-block; margin: 8rpx; font-weight: bold'>评价：</text>
   <block wx:for="{{commentList}}" wx:key="{{index}}">
   <view class='all'>
-    <view class="list" bindtap='commentTap'>
+    <view class="list" bindtap='commentTap' data-commentindex="{{index}}">
       <view class="comment" style='color: {{item.color}}'>{{item.comment}}</view>
       <view class="time">{{item.time}}</view>
-      <view class="options">
-        <button class="list_leftButton" bindtap='changeCommentTap' data-comment='{{item.comment}}' data-index='{{index}}' data-id="{{item._id}}">修改</button>
-        <button class='list_rightButton' bindtap='deleteCommentTap' data-comment='{{item.comment}}' data-index='{{index}}' data-id="{{item._id}}">删除</button>
+      <view class='options' wx:if="{{index === comment_index}}" style="line-height: {{lineHeight}}px">
+        <view class="list_leftButton" bindtap='changeCommentTap' data-comment='{{item.comment}}' data-index='{{index}}' data-id="{{item._id}}" >修改</view>
+        <view class='list_rightButton' bindtap='deleteCommentTap' data-comment='{{item.comment}}' data-index='{{index}}' data-id="{{item._id}}" >删除</view>
       </view>
     </view>
   </view>

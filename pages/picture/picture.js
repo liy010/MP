@@ -40,21 +40,13 @@ Page({
         })
       },
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onShow: function () {
-    // console.log(total)
-    let that = this
     pictureListDB.collection('pictureID').where({
       _openid: app.globalData.openid
     }).skip(offset).limit(MAX_LIMIT).get({
       success: (res) => {
         //console.log(res)
         for (let i = 0, len = res.data.length; i < len; i++) {
-          tasks.push(res.data[i].pid)          
+          tasks.push(res.data[i].pid)
         }
         //console.log(tasks)
         offset += MAX_LIMIT
@@ -66,6 +58,15 @@ Page({
         console.log(e)
       }
     })
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onShow: function () {
+    // console.log(total)
+    let that = this
+    
   },
 
   /**

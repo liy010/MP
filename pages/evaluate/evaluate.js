@@ -17,6 +17,7 @@ countResult.then((result) => {
 })
 
 let tasks = []
+let commentindex = ''
 
 Page({
 
@@ -30,7 +31,9 @@ Page({
     buttonletter: "点击加载更多 ···",
     showNot: false,
     commentChange: '',
-    commentCache: ''
+    commentCache: '',
+    comment_index: '',
+    lineHeight: ''
   },
 
   /**
@@ -299,14 +302,21 @@ Page({
     })
   },
   commentTap: function(e){
-    // var query = wx.createSelectorQuery();
-    // query.select('.list').boundingClientRect()
-    // query.exec((res) => {
-    //   // console.log(res[0].height);
-    //   this.setData({
-    //     height: res[0].height
-    //   })
-    // })
-    
+    var query = wx.createSelectorQuery();
+    query.selectAll('.list').boundingClientRect(function(rect) {
+      rect.height
+    }).exec((res) => {
+      console.log(res);
+      if (commentindex === '' || commentindex !== e.currentTarget.dataset.commentindex) {
+        commentindex = e.currentTarget.dataset.commentindex
+      } else {
+        commentindex = ''
+      }
+      console.log(e)
+      this.setData({
+        comment_index: commentindex,
+        lineHeight: res[0][e.currentTarget.dataset.commentindex].height
+      })
+    })
   },
 })

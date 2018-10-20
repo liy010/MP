@@ -1,6 +1,6 @@
 /* pages/map/map.wxss */
 
-button {
+/* button {
   height: 70rpx;
   font-size: 32rpx;
   line-height: 70rpx;
@@ -8,18 +8,105 @@ button {
   margin: 0 auto;
   background: rgb(15, 168, 15) linear-gradient(hsla(0, 0%, 100%, .2), transparent);
   border: 1px solid #ddd;
-}
+} */
+
+
 .mapStyle,
 .canvas1,
 .canvas2,
 .canvas3,
 .canvas4 {
-  margin: 20px auto 8rpx;
+  margin: 40rpx auto 8rpx;
   border: 1px solid #ccc;
+}
+
+.mapStyle {
+  margin: 20rpx auto 30rpx;
+}
+
+.switchMapStyle {
+  position: absolute;
+  top: 40rpx;
+  right: 5%;
+  height: 60rpx;
+  width: 60rpx;
+  border: 10rpx solid;
+  border-radius: 50%;
+  /* background-color: rgb(241, 236, 236); */
+  box-sizing: border-box;
 }
 
 view {
   color: rgb(17, 44, 31);
+}
+
+.searchForm {
+  height: 70rpx;
+  width: 95%;
+  margin: 40rpx auto;
+  box-sizing: border-box;
+  border: 1px solid #aaa;
+  display: block;
+  border-radius: 10rpx;
+  position: relative;
+}
+
+.searchInput {
+  width: 68%;
+  height: 100%;
+  padding: 8rpx;
+  box-sizing: border-box;
+  float: left;  
+}
+
+.searchIcon {
+  margin: 20rpx;
+  float: left;  
+}
+
+.suggest {
+  position: absolute;
+  top: 75rpx;
+  right: 0;
+  padding: 10rpx;
+  height: 260px; 
+  width: 100%;
+  background-color: #efefef;
+  box-sizing: border-box;
+  border-radius: 12rpx;
+  overflow: scroll;
+}
+
+.suggestItem {
+  border-bottom: 1px solid #ccc;
+  padding: 8rpx 4rpx;
+}
+
+.userselect {
+  height: 80rpx;
+  width: 95%;
+  margin: 40rpx auto;
+  overflow: hidden;
+}
+
+.regetposition,
+.chooseposition {
+  width: 45%;
+  background-color: green;
+  border-radius: 16rpx;
+  display: inline-block;
+  height: 100%;
+  text-align: center;
+  line-height: 80rpx;
+  font-weight: 600;
+}
+
+.regetposition {
+  float: left;
+}
+
+.chooseposition {
+  float: right;
 }
 
 span {

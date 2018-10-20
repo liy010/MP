@@ -1,4 +1,11 @@
 // pages/map/map.js
+
+const personalityMapKey = "GV5BZ-4JQ3U-A7IV2-2YTQS-BPXMF-TPBHG"
+let QQMapWX = require('../../utils/qqmap-wx-jssdk.js')
+let qqmapsdk
+let keyword
+let height
+
 Page({
 
   /**
@@ -7,29 +14,39 @@ Page({
   data: {
     latitude : null,
     longitude : null, 
-    markers: [{
-      id: 1,
-      latitude: null,
-      longitude: null,
-      name: 'Home'
-    }],
+    markers: '',
     x: 0,
     y: 0,
-    hidden: true
+    hidden: true,
+    personalityMap: '',
+    borderColor: "rgb(80, 70, 70)",
+    bgColor: "rgb(241, 236, 236)",
+    notshowSuggest: true,
+    searchSuggest: '',
+    searchInputValue: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    qqmapsdk = new QQMapWX({
+      key: personalityMapKey
+    })
     var that = this
+    wx.getSystemInfo({
+      success: function (res) {
+        height = res.screenHeight - 250
+      }
+    })
     wx.getStorage({
       key: 'map',
       success: function(res) {
         console.log(res)
         that.setData({
           latitude: res.data.latitude,
-          longitude: res.data.longitude          
+          longitude: res.data.longitude,
+          height: height      
         })
         //console.log('读取map成功')
       },
@@ -121,6 +138,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+      // 调用接口
 
   },
 
@@ -159,7 +177,111 @@ Page({
 
   },
 
-  mapTap: function() {
+  searchTap: function(e) {
+    wx.pageScrollTo({
+      scrollTop: height + 25,
+    })
+    this.setData({
+
+    })
+  },
+  
+  searchInput: function(e) {
+    let that = this
+    let value = e.detail.value
+    if (value === '') {
+      return 
+    } else {
+      wx.getLocation({
+        success: function (res) {
+          qqmapsdk.reverseGeocoder({
+            location: {
+              latitude: res.latitude,
+              longitude: res.longitude,
+            },
+            success: function(event) {
+              qqmapsdk.getSuggestion({
+                keyword: value,
+                region: event.result.address_component.city,
+                success: function (res) {
+                  console.log(res)
+                  that.setData({
+                    searchSuggest: res.data,
+                    notshowSuggest: false
+                  })
+                }
+              })
+            }
+          })
+        }
+      })
+    }
+  },
+
+  searchposition: function(e) {
+    console.log(e);
+    let that = this
+    let keyword = e.detail.value
+    if (keyword === '') {
+      wx.showModal({
+        title: '请输入要搜索的内容',
+        content: '',
+        success: function(e) {
+          if(e.cancel) {
+            that.setData({
+              notshowSuggest: true              
+            })
+          }
+        }
+      })
+    } else {
+      qqmapsdk.search({
+        keyword: keyword,
+        page_size: 15,
+        success: function(res) {
+          var mks = []
+          for(let i = 0; i < res.data.length; i++) {
+            mks.push({
+              title: res.data[i].title,
+              id: res.data[i].id,
+              latitude: res.data[i].location.lat,
+              longitude: res.data[i].location.lng,
+              iconPath: "/pic/position.png", //图标路径
+              width: 20,
+              height: 20
+            })
+          }
+          wx.pageScrollTo({
+            scrollTop: 0,
+          })
+          that.setData({
+            markers: mks,
+            notshowSuggest: true,
+            searchInputValue: ''
+          })
+        },
+        fail: function(res) {
+          console.log(res);
+        }
+      })
+    }
+  },
+
+  SuggestText: function(e) {
+    console.log(e)
+    wx.openLocation({
+      latitude: e.target.dataset.lo.lat,
+      longitude: e.target.dataset.lo.lng,
+      name: e.target.dataset.title,
+      address: e.target.dataset.address
+    })
+    this.setData({
+      notshowSuggest: true,
+      searchInputValue: ''
+    })
+  },
+
+  regetpositionTap: function() {
     let that = this
     wx.getLocation({
       success: function (res) {
@@ -190,5 +312,54 @@ Page({
         })
       }
     })
+  },
+  mapTap: function(e) {
+    console.log(e)
+    qqmapsdk.reverseGeocoder({
+      location: {
+        latitude: e.target.dataset.latitude,
+        longitude: e.target.dataset.longitude
+      },
+      success: function(res) {
+        console.log(res);
+        wx.openLocation({
+          latitude: e.currentTarget.dataset.latitude,
+          longitude: e.currentTarget.dataset.longitude,
+          name: res.result.address
+        })
+      },
+      fail: function(e) {
+        console.log(e);
+      }
+    })
+  },
+  choosepositionTap: function(e) {
+    let that = this
+    wx.chooseLocation({
+      success: function(res) {
+        console.log(res)
+        console.log(res.address);
+        that.setData({
+          latitude: res.latitude,
+          longitude: res.longitude,
+        })
+      },
+    })
+  },
+  changeMapStyleTap: function(e) {
+    let bgcolor = e.currentTarget.dataset.bgcolor
+    if (bgcolor === "rgb(241, 236, 236)") {
+      this.setData({
+        borderColor: "rgb(241, 236, 236)",
+        bgColor: "rgb(80, 70, 70)",
+        personalityMap: personalityMapKey
+      })
+    } else {
+      this.setData({
+        borderColor: "rgb(80, 70, 70)",
+        bgColor: "rgb(241, 236, 236)",
+        personalityMap: ''        
+      })
+    }
   }
 })
