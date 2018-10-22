@@ -11,7 +11,8 @@ Page({
   data: {
     bookList: '',
     detailhidden: true,
-    itembook: ''
+    itembook: '',
+    link: ''
   },
 
   /**
@@ -36,7 +37,7 @@ Page({
             title: '正在加载',
           })
           let nextrequesturl = util.bookurl('1')
-          console.log(nextrequest)
+          console.log(nextrequesturl);
           wx.request({
             url: nextrequesturl,
             header: {
@@ -63,9 +64,9 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  // onReady: function () {
-
-  // },
+  onReady: function () {
+      wx.hideLoading()
+  },
 
   /**
    * 生命周期函数--监听页面显示
@@ -147,10 +148,32 @@ Page({
     })
   },
   itembookTap: function(e) {
-    console.log(e)
+    console.log(typeof(e.currentTarget.dataset.itembook.online))
+    let result = util.onlineIndex(e.currentTarget.dataset.itembook.online)
     this.setData({
+      link: result,
       itembook: e.currentTarget.dataset.itembook,
       detailhidden: false
+    })
+  },
+  linkTap: function(e) {
+    let data = e.currentTarget.dataset.link
+    wx.setClipboardData({
+      data: data,
+      success: function() {
+        wx.showToast({
+          title: '复制成功',
+          icon: 'success',
+          duration: 2000
+        })
+      },
+      fail: function() {
+        wx.showToast({
+          title: '复制失败，请稍后再试',
+          icon: 'fail',
+          duration: 2000
+        })
+      }
     })
   }
 })

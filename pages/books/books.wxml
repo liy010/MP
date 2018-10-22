@@ -34,15 +34,20 @@
 
 <view class='p' hidden='{{detailhidden}}'>
   <view class='detail'>
-  <text>{{itembook.title}}</text>
-  <text>类别： {{itembook.catalog}}</text>
-  <view>
-  <h5>简介： </h5>
-  <text class='summary'>{{itembook.sub2}}</text>
-  </view>
-  <view wx:for="{{itembook.online}}" wx:key="{{index}}">
-  <text>{{item.webname}}</text>
-  <text>点击进入网站购买</text>
-  </view>
+    <text class='title'>{{itembook.title}}</text>
+    <view class='tag'>
+      <text style='color: #993; display: inline-block; float: left'>类别：{{itembook.catalog}}</text>
+      <text style='color: #c03; display: inline-block; float: right'>发布时间：{{itembook.bytime}}</text>
+    </view>
+    <view class="summary">
+      <h5 style="font-size: 40rpx; font-weight: bold;">简介： </h5>
+      <view class='summarydetail'>{{itembook.sub2}}</view>
+    </view>
+    <view class='store'>
+      <view wx:for="{{link}}" wx:key="{{index}}" style='display:flex; flex-wrap:nowrap; margin:8rpx 0;'>
+        <view class="storename" style="display: inline-block; float: left;">{{item.store}} : </view>
+        <view class='link' data-link="{{item.link}}" bindtap='linkTap'>{{item.link}}</view> 
+      </view>
+    </view>
   </view>
 </view>

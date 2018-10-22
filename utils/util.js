@@ -76,10 +76,75 @@ const weather = function(a) {
   }
 }
 
+/*
+@*books/books
+@*pragram books页面，用来将购买链接转换为数组，放在页面渲染
+*/
+const sliceString = function(array) {
+  return array.map((item) => {
+    let index = item.indexOf(':')
+    return {
+      store: item.slice(0, index),
+      link: item.slice(index+1)
+    }
+  })
+}
+
+const sliceToArray = function(online,array) {
+  let onlineArray = []
+  for(let i = 0,len=array.length; i < len; i++) {
+    onlineArray.push(online.slice(array[i], array[i+1]))
+  }
+  let result = sliceString(onlineArray)
+  return result
+}
+
+const onlineIndex = function(online) {
+  let DDindex, JDindex, AMZindex, SNindex, onlineArray = []
+  DDindex = online.indexOf('当当')
+  JDindex = online.indexOf('京东')
+  AMZindex = online.indexOf('亚马逊')
+  SNindex = online.indexOf('苏宁易购')
+  if (SNindex > -1) {
+    onlineArray.unshift(SNindex)
+  }
+  if (AMZindex > -1) {
+    onlineArray.unshift(AMZindex)
+  }
+  if (DDindex > -1) {
+    onlineArray.unshift(DDindex)
+  }
+  if (JDindex > -1) {
+    onlineArray.unshift(JDindex)
+  }
+  let result = sliceToArray(online, onlineArray)
+  for (let i = 0, len = result.length; i < len; i++) {
+    if (result[i].store === '亚马逊') {
+      result[i].link = decodeURI(result[i].link)
+    }
+  }
+  return result
+}
+
+
+/*
+/weather/weather/ 页面  用于将日期中的实时温度提取出来
+*/
+const real_time_temperature = function(string) {
+  string = string.slice(string.indexOf('实时'))
+  var reg = /\d+/g;
+  let result = string.match(reg);
+  return result;
+}
+
+
 module.exports = {
   formatTime: formatTime,
   formatDate: formatDate,
   pictureName: pictureName,
   bookurl: bookurl,
-  weather: weather
+  weather: weather,
+  onlineIndex: onlineIndex,
+  real_time_temperature: real_time_temperature
+
 }

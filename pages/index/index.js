@@ -9,7 +9,7 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    weathericon: 'iconfont icon-tubiaozhizuomoban',
+    weathericon: 'iconfont weather icon-tubiaozhizuomoban',
     weathercolor: '#FFFF00'
   },
   logsTap: function() {
@@ -83,7 +83,7 @@ Page({
       let weatherData = data.currentWeather[0]
       let result = util.weather(weatherData.weatherDesc)
       that.setData({
-        weathericon: "iconfont" + ' ' + result[0],
+        weathericon: "iconfont" + ' ' + 'weather' + ' ' + result[0],
         weathercolor: result[1]
       })
     }

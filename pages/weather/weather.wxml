@@ -1,10 +1,41 @@
 <!--pages/wether/wether.wxml-->
 
-<view class='city'>{{city}}</view>
-
-<view class="currentWeather"> 
-  <text>{{weatherData}}</text>
-  
+<view class='city' bindtap='cityTap'><span  class="cityspan"></span>{{city}}</view>
+<view bindtap='shuaxinTap' class='shuaxin'>
+  <view animation="{{animation}}" class='rotate'>
+    <view class='iconfont icon-shuaxin icon' />
+  </view>
+  点击刷新
 </view>
 
+<view class="container" style='padding-botton: 120rpx;'> 
+  <view class="temperature">{{currentweatherData.now}}
+    <view class='leftTop'>
+      <view class='temperatureIcon'></view>
+      <view class="weatherDesc">{{currentweatherData.weatherDesc}}</view>
+    </view>
+  </view>
+  <view class="tag">
+    <view class='pm iconfont icon-icon-pm' style='color: {{pm.pmColor}}'>{{currentweatherData['pm25']}}</view><view style="background-color: {{pm.pmColor}}" class="airQuality" >{{pm.airQuality}}</view>
+    <view class="temperaturerange iconfont icon-wendu">{{currentweatherData.temperature}}</view>
+  </view>
+  <view class='wind iconfont icon-feng'><text>{{currentweatherData.wind}}</text></view>
+  <!-- <text>{{currentweatherData}}</text> -->
+</view>
+
+<view class="originalweather">
+  <block wx:for="{{originalweatherData}}" wx:key="{{index}}">
+    <view class="item">
+      <view style='text-align: center;'>{{item.date}}</view>
+      <image class="picture" mode="aspectFill" src="{{item.dayPictureUrl}}" />
+      <view class="detail">
+        <view class="list" style='font-weight: bold'>{{item.temperature}}</view>
+        <view class="list">{{item.weather}}</view>
+        <view class="list">{{item.wind}}</view>
+      </view>
+      <image class="picture" mode="aspectFill" src='{{item.nightPictureUrl}}'></image>
+    </view>  
+  </block>
+</view>
+<!-- <view>{{originalweatherData}}</view> -->
 <view class="originalData"></view>

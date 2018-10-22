@@ -89,3 +89,9 @@
   color: rgb(3, 138, 14);
   font-weight: normal;
 }
+
+.weather {
+  display: block;
+  font-size: 94rpx;
+  margin: 22rpx auto 0;
+}

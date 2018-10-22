@@ -66,23 +66,63 @@ text {
   margin-left: 6rpx;
 }
 
+/* 图书详情部分 */
+
 .p {
   position: fixed;
   background-color: #777;
-  height: 100%;
   width: 100%;
   top: 0;
   left: 0;
+  height: 120%;
 }
 
 .detail {
-  width: 90%;
-  margin: 100rpx auto;
+  width: 95%;
+  margin: 30rpx auto;
   background-color: #fff;
 }
 
+.title {
+  text-align: center;
+  display: block;
+  font-size: 50rpx;
+  font-weight: 600;
+  padding-top: 10rpx;
+}
+
+.tag {
+  height: 30rpx;
+  margin: 5rpx 10rpx;
+  overflow: hidden;
+}
+
 .summary {
+  padding: 16rpx 10rpx;
+}
+
+.summarydetail {
   height: 700rpx;
   overflow: scroll;
-  text-indent: 2em;
+  text-indent: 60rpx;
+  font-size: 30rpx;
+}
+
+.store {
+  height: 260rpx;
+  width: 100%;
+  overflow: scroll;
+}
+
+.storename {
+  flex-grow: 1;
+  width: 20%;
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.link {
+  flex-grow: 2;
+  width: 70%;
+  font-size: 28rpx;
 }

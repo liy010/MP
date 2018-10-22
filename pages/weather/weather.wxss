@@ -1,9 +1,149 @@
 /* pages/wether/wether.wxss */
 
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../../pic/icomoon/fonts/icomoon.eot?368l52');
+  src:  url('../../pic/icomoon/fonts/icomoon.eot?368l52#iefix') format('embedded-opentype'),
+    url('../../pic/icomoon/fonts/icomoon.ttf?368l52') format('truetype'),
+    url('../../pic/icomoon/fonts/icomoon.woff?368l52') format('woff'),
+    url('../../pic/icomoon/fonts/icomoon.svg?368l52#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 page {
   background-color: rgba(134, 247, 209, 0.664);
 }
 
+.container {
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:space-between;
+  padding:160rpx 0;
+  box-sizing:border-box;
+  background-color:#888;
+}
+
 .city {
   position: fixed;
+  right: 10rpx;
+  font-size: 32rpx;
+  top: 16rpx;
+}
+
+.shuaxin {
+  position: fixed;
+  right: 200rpx;
+  top: 16rpx;
+  font-size: 32rpx;
+}
+
+.rotate {
+  height: 32rpx;
+  width: 32rpx;
+  /* background-color: #ccc; */
+  display: inline-block;
+}
+
+
+.cityspan {
+  padding-right: 8rpx;
+  font-family: "icomoon";
+  color: #c03;
+}
+
+.temperature {
+  font-size: 180rpx;
+  position: relative;
+  font-family: "Josefin Sans";
+}
+
+.leftTop {
+  position: absolute;
+  height: 60rpx;
+  width: 110rpx;
+  top: -10rpx;
+  right: -120rpx;
+}
+
+.temperatureIcon {
+  height: 30rpx;
+  width: 30rpx;
+  border-radius: 50%;
+  border: 8rpx solid #fff;
+  float: left;
+  margin-right: 20rpx;
+  margin-top: 6rpx;
+}
+
+.weatherDesc {
+  float: left;
+  font-size: 26rpx;
+  line-height: 60rpx;
+  margin-top: 4rpx;
+}
+
+.tag {
+  width: 60%;
+  height: 80rpx;
+}
+
+.pm {
+  float: left;
+  font-size: 35rpx !important;
+}
+
+.airQuality {
+  float: left;
+  height: 32rpx;
+  width: 45rpx;
+  border-radius: 4rpx;
+  color: #fff; 
+  font-weight: bold;
+  font-size: 28rpx;
+  margin: 8rpx 0 0 8rpx;
+  line-height: 30rpx;
+  text-align: center;
+}
+
+.temperaturerange {
+  float: right;
+  font-size: 35rpx !important;
+}
+
+.wind {
+  font-size: 35rpx !important;  
+  background-clip: #555;
+}
+
+.originalweather {
+  display: flex;
+  padding: 0 10rpx;
+  flex-wrap: nowrap;
+  height: 650rpx;
+}
+
+.item {
+  flex-grow: 1;
+  width: 20%;
+  margin: 0 10rpx;
+  background-clip: #ccc;
+}
+
+.picture {
+  width: 90%;
+  height: 120rpx;
+  margin: 16rpx 0;
+}
+
+.detail {
+  height: 300rpx;
+  font-size: 28rpx;
+}
+
+.list {
+  margin: 18rpx 6rpx;
 }
