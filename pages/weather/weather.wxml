@@ -1,0 +1,10 @@
+<!--pages/wether/wether.wxml-->
+
+<view class='city'>{{city}}</view>
+
+<view class="currentWeather"> 
+  <text>{{weatherData}}</text>
+  
+</view>
+
+<view class="originalData"></view>

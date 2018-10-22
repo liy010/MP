@@ -1,4 +1,16 @@
 /**index.wxss**/
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../../pic/icomoon/fonts/icomoon.eot?368l52');
+  src:  url('../../pic/icomoon/fonts/icomoon.eot?368l52#iefix') format('embedded-opentype'),
+    url('../../pic/icomoon/fonts/icomoon.ttf?368l52') format('truetype'),
+    url('../../pic/icomoon/fonts/icomoon.woff?368l52') format('woff'),
+    url('../../pic/icomoon/fonts/icomoon.svg?368l52#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .userinfo {
   display: flex;
   flex-direction: column;
@@ -29,11 +41,7 @@
     background-color: #ccc;
 }
 
-.other {
-  margin-top: -200rpx;
-}
-
-button {
+/* button {
   display: block;
   margin: 20rpx auto;
   height: 35px;
@@ -42,4 +50,42 @@ button {
   border-radius: 8px;
   line-height: 35px;
   box-shadow: 3px 3px 18px rgba(162, 252, 27, 0.8);
+} */
+
+.set {
+  width: 90%;
+  margin: 50rpx auto 30rpx;
+  padding: 4rpx;
+}
+
+.list1,
+.list2 {
+  display: flex;
+  height: 200rpx;
+  justify-content: space-around;
+  padding: 4rpx;
+  margin: 8rpx;
+  /* line-height: 200rpx; */
+}
+
+.item {
+  width: 30%;
+  text-align: center;
+  border-radius: 16rpx;
+  margin: 8rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+}
+
+.codespan,
+.bookspan,
+.cfspan,
+.logspan,
+.expressspan {
+  display: block;
+  font-size: 70rpx;
+  margin: 34rpx auto 20rpx;
+  font-family: "icomoon";
+  color: rgb(3, 138, 14);
+  font-weight: normal;
 }

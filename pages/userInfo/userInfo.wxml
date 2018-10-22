@@ -1,0 +1,9 @@
+<!--pages/userInfo/userInfo.wxml-->
+
+<text>{{user.avatarUrl}}</text>
+<text>{{user.city}}</text>
+<text>{{user.country}}</text>
+<text>{{user.gender}}</text>
+<text>{{user.language}}</text>
+<text>{{user.nickname}}</text>
+<text>{{user.province}}</text>

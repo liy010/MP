@@ -1,0 +1,21 @@
+/* pages/scancode/index.wxss */
+
+.scan {
+  display: block;
+  margin: 80rpx auto 0;
+  height: 100rpx;
+  width: 200px;
+  background: #58a linear-gradient(hsla(0, 0%, 100%, .3), transparent);
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  line-height: 100rpx;
+  box-shadow: 3rpx 5rpx 20rpx 3rpx rgba(0, 0, 0, 0.8);
+  text-shadow: 3rpx 3rpx 16rpx rgba(0, 0, 0, 0.5);
+  font-size: 46rpx;
+  letter-spacing: 2px;
+}
+
+.hover {
+  background-color: #200;
+  color: white;
+}

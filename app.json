@@ -7,11 +7,16 @@
     "pages/map/map",
     "pages/picture/picture",
     "pages/wxml/index",
-    "pages/cfunction/cfunction"
+    "pages/cfunction/cfunction",
+    "pages/scancode/index",
+    "pages/books/books",
+    "pages/express/express",
+    "pages/weather/weather",
+    "pages/userInfo/userInfo"
   ],
   "tabBar": {
     "color": "#333",
-    "backgroundColor": "#3c3",
+    "backgroundColor": "#038a0e",
     "position": "top",
     "selectedColor": "#fff",
     "list": [
@@ -39,14 +44,14 @@
   },
   "window": {
     "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#202",
+    "navigationBarBackgroundColor": "#302",
     "navigationBarTitleText": "liyangTest",
     "navigationBarTextStyle": "white",
     "onReachBottomDistance": 80,
     "backgroundColor": "#9c2das"
   },
   "networkTimeout": {
-    "request": 5000,
+    "request": 8000,
     "downloadFils": 10000
   },
   "debug": true

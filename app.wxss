@@ -1,4 +1,7 @@
 /**app.wxss**/
+
+@import "/libs/stylesheet.wxss";
+
 .container {
   height: 100%;
   display: flex;
@@ -9,3 +12,4 @@
   box-sizing: border-box;
   background-color: #efefef;
 } 
+

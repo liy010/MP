@@ -1,12 +1,16 @@
 //index.js
 //获取应用实例
 const app = getApp()
+var bmap = require('../../libs/bmap-wx.js'); 
+const util = require('../../utils/util.js');
 
 Page({
   data: {
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    weathericon: 'iconfont icon-tubiaozhizuomoban',
+    weathercolor: '#FFFF00'
   },
   logsTap: function() {
       wx.navigateTo({
@@ -18,8 +22,29 @@ Page({
       url: '../cfunction/cfunction',
     })
   },
+  scancode: () => {
+    wx.navigateTo({
+      url: '../scancode/index',
+    })
+  },
+  booksQueryTap: ()=> {
+    wx.navigateTo({
+      url: '../books/books',
+    })
+  },
+  expressTap: () => {
+    wx.navigateTo({
+      url: '../express/express',
+    })
+  },
+  weatherTap: () => {
+    wx.navigateTo({
+      url: '../weather/weather',
+    })
+  },
   onLoad: function () {   
     if (app.globalData.userInfo) {
+      console.log(app.globalData)
       this.setData({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true,     
@@ -28,6 +53,8 @@ Page({
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
       // 所以此处加入 callback 以防止这种情况
       app.userInfoReadyCallback = res => {
+        console.log(app.globalData)
+        
         this.setData({
           userInfo: res.userInfo,
           hasUserInfo: true
@@ -45,6 +72,25 @@ Page({
         }
       })
     }
+    let that = this
+    let BMap = new bmap.BMapWX({
+      ak: 'iWyYK20txL5AfjtGy0w363xA4DpuiBzo'
+    });
+    let fail = function(data) {
+      console.log(data)
+    };
+    let success = function(data) {
+      let weatherData = data.currentWeather[0]
+      let result = util.weather(weatherData.weatherDesc)
+      that.setData({
+        weathericon: "iconfont" + ' ' + result[0],
+        weathercolor: result[1]
+      })
+    }
+    BMap.weather({
+      fail: fail,
+      success: success
+    })
   },
   getUserInfo: function(e) {
     //console.log(e)
@@ -55,4 +101,9 @@ Page({
     })
   },
   onShareAppMessage: app.onShareAppMessage,
+  bindViewTap: function(e) {
+    wx.navigateTo({
+      url: '../userInfo/userInfo',
+    })
+  }
 })

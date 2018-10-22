@@ -1,0 +1,48 @@
+<!--pages/books/books.wxml-->
+
+<view class='option' style="background: url('https://6c79-lycloud-901949-1257735682.tcb.qcloud.la/picture/hcdp0J5jKTZO820c37233beca606b1a749ea6bfad599.png?sign=beb18b660ebca9771e300510db0fe7dc&t=1540108858') repeat;">
+  <view class="item" bindtap="chooseTap" data-catalogId='242'>中国文学</view>
+  <view class="item" bindtap="chooseTap" data-catalogId='252' style='background-color:#EC6D2D'>人物传记</view>
+  <view class="item" bindtap="chooseTap" data-catalogId='244' style='background-color:#21B5D9'>儿童文学</view>
+  <view class="item" bindtap="chooseTap" data-catalogId='248' style='background-color:#76A027'>历史</view>
+  <view class="item" bindtap="chooseTap" data-catalogId='257'>哲学</view>
+  <view class="item" bindtap="chooseTap" data-catalogId='243' style='background-color:#AC86B8'>外国文学</view>
+  <view class="item" bindtap="chooseTap" data-catalogId='247'>小说</view>
+  <view class="item" bindtap="chooseTap" data-catalogId='251' style='background-color:#76A027'>心灵鸡汤</view>
+  <view class="item" bindtap="chooseTap" data-catalogId='253' style='background-color:#EC6D2D'>心理学</view>
+  <view class="item" bindtap="chooseTap" data-catalogId='250'>成功励志</view>
+  <view class="item" bindtap="chooseTap" data-catalogId='249' style='background-color:#21B5D9'>教育</view>
+  <view class="item" bindtap="chooseTap" data-catalogId='245' style='background-color:#AC86B8'>散文</view>
+  <view class="item" bindtap="chooseTap" data-catalogId='256'>理财</view>
+  <view class="item" bindtap="chooseTap" data-catalogid='254'>管理</view>
+  <view class="item" bindtap="chooseTap" data-catalogId='246' style='background-color:#76A027'>经典名著</view>
+  <view class="item" bindtap="chooseTap" data-catalogId='255' style='background-color:#AC86B8'>经济</view>
+  <view class="item" bindtap="chooseTap" data-catalogId='258' style='background-color:#EC6D2D'>计算机</view>
+</view>
+
+<view class='allbook'>
+  <block wx:for="{{bookList}}" wx:key="{{index}}">
+    <view class='itembook' data-itembook="{{item}}" bindtap='itembookTap'>
+      <image mode="aspectFill" class="bookimg" src='{{item.img}}'></image>
+      <view class='discription'>
+          <h5>{{item.title}}</h5>
+          <text class="redding">{{item.reading}}</text>
+      </view>
+    </view>
+  </block>
+</view>
+
+<view class='p' hidden='{{detailhidden}}'>
+  <view class='detail'>
+  <text>{{itembook.title}}</text>
+  <text>类别： {{itembook.catalog}}</text>
+  <view>
+  <h5>简介： </h5>
+  <text class='summary'>{{itembook.sub2}}</text>
+  </view>
+  <view wx:for="{{itembook.online}}" wx:key="{{index}}">
+  <text>{{item.webname}}</text>
+  <text>点击进入网站购买</text>
+  </view>
+  </view>
+</view>

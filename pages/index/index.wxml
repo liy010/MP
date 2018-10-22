@@ -6,10 +6,19 @@
       <image catchlongpress="con" bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
+  </view >
+  <view class='set'>
+    <view class="list1">
+      <view class="item" bindtap='logsTap'><span class="logspan"></span>日志</view>
+      <view class="item" bindtap='cfunctionTap'><span class="cfspan"></span>云函数测试</view>
+      <view class="item" bindtap='scancode'><span class="codespan"></span>扫描二维码</view>
+    </view>
+    <view class="list2">
+      <view class="item" bindtap='booksQueryTap'><span  class="bookspan"></span>书籍推荐</view>
+      <view class="item" bindtap='expressTap'><span class="expressspan"></span>快递单号查询</view>
+      <view class="item" bindtap='weatherTap'><text  class="{{weathericon}}" style="color: {{weathercolor}}"></text>天气</view>
+    </view>
   </view>
-  <view class="other">
-  <button bindtap='logsTap'>日志</button>
-  <button bindtap='cfunctionTap'>云函数测试</button>
+
   <com></com>
-  </view>
 </view>

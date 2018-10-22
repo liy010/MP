@@ -1,0 +1,9 @@
+/* pages/wether/wether.wxss */
+
+page {
+  background-color: rgba(134, 247, 209, 0.664);
+}
+
+.city {
+  position: fixed;
+}
