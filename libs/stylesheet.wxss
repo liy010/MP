@@ -36,11 +36,11 @@
 
 .icon-yintian:before { content: "\e624"; }
 
-.icon-feng:before { content: "\e60c";  padding-right: 10rpx;}
+.icon-feng:before { content: "\e60c";  padding-right: 10rpx; color: #13227a; font-size: 42rpx;}
 
 .icon-wu:before { content: "\e6f2"; }
 
-.icon-icon-pm:before { content: "\e605";   padding-right: 10rpx;}
+.icon-icon-pm:before { content: "\e605";   padding-right: 10rpx; font-size: 42rpx;}
 
 .icon-tubiaozhizuomoban:before { content: "\e603"; }
 
@@ -48,7 +48,7 @@
 
 .icon-tianqi-:before { content: "\ec65"; }
 
-.icon-wendu:before { content: "\e6b4";   padding-right: 10rpx;}
+.icon-wendu:before { content: "\e6b4";   padding-right: 10rpx; color: #1296db; font-size: 42rpx;}
 
 .icon-shuaxin:before { content: "\e625"; }
 

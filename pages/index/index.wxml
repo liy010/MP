@@ -19,6 +19,7 @@
       <view class="item" bindtap='weatherTap'><text  class="{{weathericon}}" style="color: {{weathercolor}}"></text>天气</view>
     </view>
   </view>
+</view>
 
   <com></com>
-</view>
+  <view bindtap='minigameTap'>小游戏</view>

@@ -68,11 +68,11 @@ const weather = function(a) {
   } else if (a.indexOf('雾') > -1) {
     return ['icon-wu', '#C7C7C7']
   } else if (a.indexOf('阴') > -1) {
-    return ['icon-yintian', '#B7B7B7']
+    return ['icon-yintian', '#D0D0D0']
   } else if (a.indexOf('多云') > -1) {
-    return ['icon-duoyun', '#8F8F8F']
+    return ['icon-duoyun', '#9c3']
   } else {
-    return ['icon-tubiaozhizuomoban', '#FFFF00']
+    return ['icon-tubiaozhizuomoban', '#FFCC00']
   }
 }
 
@@ -105,18 +105,19 @@ const onlineIndex = function(online) {
   JDindex = online.indexOf('京东')
   AMZindex = online.indexOf('亚马逊')
   SNindex = online.indexOf('苏宁易购')
-  if (SNindex > -1) {
-    onlineArray.unshift(SNindex)
-  }
-  if (AMZindex > -1) {
-    onlineArray.unshift(AMZindex)
+  if (JDindex > -1) {
+    onlineArray.push(JDindex)
   }
   if (DDindex > -1) {
-    onlineArray.unshift(DDindex)
+    onlineArray.push(DDindex)
   }
-  if (JDindex > -1) {
-    onlineArray.unshift(JDindex)
+  if (SNindex > -1) {
+    onlineArray.push(SNindex)
   }
+  if (AMZindex > -1) {
+    onlineArray.push(AMZindex)
+  }
+
   let result = sliceToArray(online, onlineArray)
   for (let i = 0, len = result.length; i < len; i++) {
     if (result[i].store === '亚马逊') {

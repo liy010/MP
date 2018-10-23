@@ -26,7 +26,7 @@
 <view class="originalweather">
   <block wx:for="{{originalweatherData}}" wx:key="{{index}}">
     <view class="item">
-      <view style='text-align: center;'>{{item.date}}</view>
+      <view style='text-align: center; font-weight: bold;'>{{item.date}}</view>
       <image class="picture" mode="aspectFill" src="{{item.dayPictureUrl}}" />
       <view class="detail">
         <view class="list" style='font-weight: bold'>{{item.temperature}}</view>

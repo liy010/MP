@@ -42,6 +42,11 @@ Page({
       url: '../weather/weather',
     })
   },
+  minigameTap: () => {
+    wx.navigateTo({
+      url: '../minigame/minigame',
+    })
+  },
   onLoad: function () {   
     if (app.globalData.userInfo) {
       console.log(app.globalData)

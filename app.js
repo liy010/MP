@@ -68,6 +68,8 @@ App({
   globalData: {
     userInfo: null,
     imageUrl: '',
+    lo: '',
+    title: ''
   },
   // onLoad: function(options) {
   //   wx.cloud.init({

@@ -12,7 +12,9 @@
     "pages/books/books",
     "pages/express/express",
     "pages/weather/weather",
-    "pages/userInfo/userInfo"
+    "pages/userInfo/userInfo",
+    "pages/minigame/minigame",
+    "pages/search/search"
   ],
   "tabBar": {
     "color": "#333",

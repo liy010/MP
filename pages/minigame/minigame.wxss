@@ -1,0 +1,18 @@
+/* pages/minigame/minigame.wxss */
+
+.area {
+  height: 500rpx;
+  width: 680rpx;
+  border: 4rpx solid #999;
+  border-radius: 30rpx;
+  padding: 3.5rpx;
+  position: relative;
+}
+
+.ball {
+  height: 30rpx;
+  width: 30rpx;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: absolute;
+}

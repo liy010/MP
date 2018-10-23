@@ -1,0 +1,4 @@
+<!--pages/minigame/minigame.wxml-->
+<view class='container' style='height: 100%'>
+  <view class='area'><view class='ball' style='top: {{top}}; right: {{right}}'></view></view>
+</view>

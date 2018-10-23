@@ -10,18 +10,9 @@
   border: 1px solid #ddd;
 } */
 
-
-.mapStyle,
-.canvas1,
-.canvas2,
-.canvas3,
-.canvas4 {
-  margin: 40rpx auto 8rpx;
-  border: 1px solid #ccc;
-}
-
 .mapStyle {
   margin: 20rpx auto 30rpx;
+  border: 2rpx solid #ccc;
 }
 
 .switchMapStyle {
@@ -64,7 +55,8 @@ view {
   float: left;  
 }
 
-.suggest {
+/*  移除搜索， 重定向到其他页面 */
+/* .suggest {
   position: absolute;
   top: 75rpx;
   right: 0;
@@ -75,12 +67,15 @@ view {
   box-sizing: border-box;
   border-radius: 12rpx;
   overflow: scroll;
+  margin-bottom: 60%;
 }
 
 .suggestItem {
   border-bottom: 1px solid #ccc;
   padding: 8rpx 4rpx;
-}
+} */
+
+
 
 .userselect {
   height: 80rpx;
