@@ -73,6 +73,7 @@ Page({
   onShareAppMessage: function () {
 
   },
+
   searchInput: function(e) {
     let that = this
     let value = e.detail.value
@@ -105,10 +106,10 @@ Page({
   },
 
   SuggestText: function(e) {
-    app.globalData.lo = e.currentTarget.dataset
-    this.setData({
-      searchInputValue: e.currentTarget.dataset.title
-    })
+    app.globalData.lo = e.currentTarget.dataset.choose
+    // this.setData({
+    //   searchInputValue: e.currentTarget.dataset.title
+    // })
     wx.navigateBack({
       delta: 1,
       success: function () {

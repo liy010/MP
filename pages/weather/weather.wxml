@@ -1,6 +1,18 @@
 <!--pages/wether/wether.wxml-->
 
-<view class='city' bindtap='cityTap'><span  class="cityspan"></span>{{city}}</view>
+<view class='add iconfont icon-add-copy' bindtap='addTap'></view>
+<view class="chooseAddTap" wx:if="{{chooseAddTap}}">
+<picker mode="region" style='height: 100%; width: 100%' value='{{region}}' capture-bind:cancel='bindPickerCancel' bindchange='bindRegionChange' custom-item="{{customItem}}">
+
+ <view class="picker">
+  当前选择：<view class='pickerItem'>{{region[0]}}</view>
+  <view class='pickerItem'>{{region[1]}}</view>
+  <view class='pickerItem'>{{region[2]}}</view>
+ </view>
+</picker>
+<icon type='cancel' color='red' size='35' class='pickerIcon' capture-bind:tap='pickerIconTap'></icon>
+</view>
+<view class='city' bindtap='cityTap'><span class="cityspan"></span>{{city}}</view>
 <view bindtap='shuaxinTap' class='shuaxin'>
   <view animation="{{animation}}" class='rotate'>
     <view class='iconfont icon-shuaxin icon' />
@@ -8,7 +20,7 @@
   点击刷新
 </view>
 
-<view class="container" style='padding-botton: 120rpx;'> 
+<view class="container" style='padding-botton: 120rpx;' bindtouchstart='mytouchstart' bindtouchend='mytouchend'> 
   <view class="temperature">{{currentweatherData.now}}
     <view class='leftTop'>
       <view class='temperatureIcon'></view>
@@ -20,6 +32,13 @@
     <view class="temperaturerange iconfont icon-wendu">{{currentweatherData.temperature}}</view>
   </view>
   <view class='wind iconfont icon-feng'><text>{{currentweatherData.wind}}</text></view>
+  <view class='allList'>
+      <view class= 'icon-weizhi iconfont choosefirst' style="color: {{positionColor}}"></view>    
+    <block wx:for="{{total}}" wx:key="{{index}}">
+      <view wx:if="{{listIndex === index}}" class="listChoose listChooseStyle"></view>
+      <view wx:else class='listChoose'></view>
+    </block>
+  </view>
   <!-- <text>{{currentweatherData}}</text> -->
 </view>
 

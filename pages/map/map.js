@@ -6,6 +6,8 @@ let QQMapWX = require('../../utils/qqmap-wx-jssdk.js')
 let qqmapsdk
 let keyword
 let height
+let detail = ''
+let allDetail = ''
 
 const aa = function(title) {
   return new Promise((resolve, reject) => {
@@ -16,6 +18,7 @@ const aa = function(title) {
       success: function (res) {
         console.log(res)
         var mks = []
+        allDetail = res.data
         for (let i = 0; i < res.data.length; i++) {
           mks.push({
             title: res.data[i].title,
@@ -52,6 +55,9 @@ Page({
     bgColor: "rgb(241, 236, 236)",
     searchInputValue: '点击以搜索',
     height: '',
+    chooseSize: false,
+    animationData: {},
+    positionInformation: ''
   },
 
   /**
@@ -90,11 +96,20 @@ Page({
       wx.getLocation({
         success: function(res) {
           aa(app.globalData.title).then((result) => {
+            wx.setStorage({
+              key: 'markers',
+              data: {
+                markers: result,
+                searchInputValue: app.globalData.title,
+                latitude: res.latitude,
+                longitude: res.longitude,
+              }
+            })
             that.setData({
               markers: result,
               searchInputValue: app.globalData.title,
               latitude: res.latitude,
-              longitude: res.longitude
+              longitude: res.longitude,
             })
           }).catch((error) => {
             console.log(error)
@@ -103,64 +118,116 @@ Page({
       })
       console.log(app.globalData.title)
     } else if (app.globalData.lo !== '') {
+      console.log(app.globalData)
+      detail = app.globalData.lo
       wx.setStorage({
         key: 'map',
         data: {
-          latitude: app.globalData.lo.lo.lat,
-          longitude: app.globalData.lo.lo.lng
+          latitude: app.globalData.lo.location.lat,
+          longitude: app.globalData.lo.location.lng,
+          markers: [{
+            title: app.globalData.lo.title,
+            id: app.globalData.lo.id,
+            latitude: app.globalData.lo.location.lat,
+            longitude: app.globalData.lo.location.lng,
+            iconPath: "/pic/position.png", //图标路径
+            width: 30,
+            height: 30,
+            rotate: 10,
+            alpha: 0.8
+          }],
         },
         success: function () {
           //console.log('写入map成功')
         }
       })
       this.setData({
-        latitude: app.globalData.lo.lo.lat,
-        longitude: app.globalData.lo.lo.lng,
+        latitude: app.globalData.lo.location.lat,
+        longitude: app.globalData.lo.location.lng,
         markers: [{
-          latitude: app.globalData.lo.lo.lat,
-          longitude: app.globalData.lo.lo.lng
+          latitude: app.globalData.lo.location.lat,
+          longitude: app.globalData.lo.location.lng,
+          iconPath: "/pic/position.png", //图标路径
+          width: 30,
+          height: 30,
+          title: app.globalData.lo.title,
+          id: app.globalData.lo.id,
+          rotate: 10,
+          alpha: 0.8
         }],
-        searchInputValue: app.globalData.lo.title
+        searchInputValue: app.globalData.lo.title,
       })
       console.log(app.globalData)
     } else {
       wx.getStorage({
-        key: 'map',
-        success: function (res) {
-          console.log(res)
+        key: 'markers',
+        success: function(res) {
           that.setData({
+            markers: res.data.markers,
+            searchInputValue: res.data.searchInputValue,
             latitude: res.data.latitude,
             longitude: res.data.longitude,
           })
-          //console.log('读取map成功')
         },
-        fail: function () {
-          wx.getLocation({
+        fail: function() {
+          wx.getStorage({
+            key: 'map',
             success: function (res) {
+              console.log(res)
               that.setData({
-                latitude: res.latitude,
-                longitude: res.longitude,
-                markers: [{
-                  latitude: res.latitude,
-                  longitude: res.longitude
-                }]
-              }),
-              wx.setStorage({
-                key: 'map',
-                data: {
-                  latitude: res.latitude,
-                  longitude: res.longitude
-                },
-                success: function () {
-                  //console.log('写入map成功')
-                }
+                latitude: res.data.latitude,
+                longitude: res.data.longitude,
+                markers: res.data.markers,
               })
+              //console.log('读取map成功')
             },
             fail: function () {
-              wx.showToast({
-                title: '位置信息获取失败',
-                icon: 'fail',
-                duration: 1500
+              wx.getLocation({
+                success: function (res) {
+                  that.setData({
+                    latitude: res.latitude,
+                    longitude: res.longitude,
+                    markers: [{
+                      latitude: res.latitude,
+                      longitude: res.longitude,
+                      markers: [{
+                        latitude: res.latitude,
+                        longitude: res.longitude,
+                        iconPath: "/pic/position.png", //图标路径
+                        width: 30,
+                        height: 30,
+                        rotate: 10,
+                        alpha: 0.8
+                      }],
+                    }]
+                  }),
+                    wx.setStorage({
+                      key: 'map',
+                      data: {
+                        latitude: res.latitude,
+                        longitude: res.longitude,
+                        markers: [{
+                          latitude: res.latitude,
+                          longitude: res.longitude,
+                          iconPath: "/pic/position.png", //图标路径
+                          width: 30,
+                          height: 30,
+                          rotate: 10,
+                          alpha: 0.8
+                        }],
+                      },
+                      success: function () {
+                        //console.log('写入map成功')
+                      }
+                    })
+                },
+                fail: function () {
+                  wx.showToast({
+                    title: '位置信息获取失败',
+                    icon: 'fail',
+                    duration: 1500
+                  })
+                }
               })
             }
           })
@@ -181,7 +248,14 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    wx.removeStorage({
+      key: 'map',
+      success: function(res) {},
+    })
+    wx.removeStorage({
+      key: 'markers',
+      success: function(res) {},
+    })
   },
 
   /**
@@ -206,6 +280,8 @@ Page({
   },
 
   searchTap: function(e) {
+    detail = '';
+    allDetail = '';
     wx.navigateTo({
       url: '../search/search',
     })
@@ -386,5 +462,81 @@ Page({
         personalityMap: ''        
       })
     }
+  },
+  markertap: function (e) {
+    console.log(detail)
+    if(detail !== '') {
+      this.setData({
+        positionInformation: detail
+      })
+    } else {
+        let id = e.markerId;
+        for(let i=0,len=allDetail.length; i < len; i++) {
+          if(allDetail[i].id === id) {
+            this.setData({
+              positionInformation: allDetail[i]
+            })
+          }
+        }
+    }
+    // 用that取代this，防止不必要的情况发生
+    var that = this;
+    // 创建一个动画实例
+    var animation = wx.createAnimation({
+      // 动画持续时间
+      duration: 500,
+      // 定义动画效果，当前是匀速
+      timingFunction: 'linear'
+    })
+    // 将该变量赋值给当前动画
+    that.animation = animation
+    // 先在y轴偏移，然后用step()完成一个动画
+    animation.translateY(200).step()
+    // 用setData改变当前动画
+    that.setData({
+      // 通过export()方法导出数据
+      animationData: animation.export(),
+      // 改变view里面的Wx：if
+      chooseSize: true
+    })
+    // 设置setTimeout来改变y轴偏移量，实现有感觉的滑动
+    setTimeout(function () {
+      animation.translateY(0).step()
+      that.setData({
+        animationData: animation.export()
+      })
+    }, 200)
+  },
+  hideModal: function (e) {
+    var that = this;
+    var animation = wx.createAnimation({
+      duration: 1000,
+      timingFunction: 'linear'
+    })
+    that.animation = animation
+    animation.translateY(200).step()
+    that.setData({
+      animationData: animation.export()
+
+    })
+    setTimeout(function () {
+      animation.translateY(0).step()
+      that.setData({
+        animationData: animation.export(),
+        chooseSize: false
+      })
+    }, 200)
+  },
+  phone: function(e) {
+    wx.makePhoneCall({
+      phoneNumber: 'e.currentTarget.dataset.phone',
+    })
+  },
+  lineWay: function(e) {
+    wx.openLocation({
+      latitude: e.currentTarget.dataset.position.lat,
+      longitude: e.currentTarget.dataset.position.lng,
+      name: e.currentTarget.dataset.name
+    })
   }
 })

@@ -10,6 +10,16 @@
   border: 1px solid #ddd;
 } */
 
+.page {
+  height: 100%;
+}
+
+.home {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
 .mapStyle {
   margin: 20rpx auto 30rpx;
   border: 2rpx solid #ccc;
@@ -34,7 +44,7 @@ view {
 .searchForm {
   height: 70rpx;
   width: 95%;
-  margin: 40rpx auto;
+  margin: 30rpx auto;
   box-sizing: border-box;
   border: 1px solid #aaa;
   display: block;
@@ -80,7 +90,7 @@ view {
 .userselect {
   height: 80rpx;
   width: 95%;
-  margin: 40rpx auto;
+  margin: 30rpx auto;
   overflow: hidden;
 }
 
@@ -106,4 +116,57 @@ view {
 
 span {
   color: rgb(4, 245, 153);
+}
+
+.maskLayer {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: #888;
+  opacity: 0.3;
+  z-index: 10;
+}
+
+.choose {
+  position: fixed;
+  height: 35%;
+  width: 100%;
+  bottom: 0;
+  right: 0;
+  z-index: 12;
+  background-color: white;
+  border-radius: 26rpx 26rpx 0 0;
+  padding: 10rpx 16rpx;
+  overflow: scroll;
+  box-sizing: border-box;
+}
+
+.item {
+  margin: 16rpx;
+  display: flex;
+  height: 70rpx;
+  border-bottom: 2rpx solid #ccc;
+}
+
+.itemName {
+  width: 15%;
+  flex-grow: 1
+}
+
+.itemDetail {
+  width: 80%;
+  flex-grow: 1;
+  font-size: 36rpx;
+  overflow: scroll;
+}
+
+cover-view button {
+  width: 90%;
+  margin: 5rpx auto 0;
+  border-radius: 16rpx;
+  height: 80rpx;
+  background-color: rgb(52, 129, 231);
+  line-height: 80rpx;
 }
